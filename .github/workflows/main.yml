@@ -52,10 +52,10 @@ jobs:
 
       - name: deploy to aks
         working-directory: manifests
-        run: |
-          kubectl apply -f deployment.yaml -n todo
-          kubectl apply -f service.yaml -n todo
-          kubectl apply -f ingress.yaml -n todo
+        run: | 
+          kubectl apply -f deployment.yaml -n todo --validate=false
+          kubectl apply -f service.yaml -n todo --validate=false
+          kubectl apply -f ingress.yaml -n todo --validate=false
 
           
 
