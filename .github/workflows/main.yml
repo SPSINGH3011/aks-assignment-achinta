@@ -46,9 +46,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: aks login
-        uses: Azure/cli@v2.2.0
-        with:
-          inlineScript: az aks get-credentials --resource-group ${{ secrets.RG_NAME }} --name ${{ secrets.AKS_NAME }} --overwrite-existing
+        run: az aks get-credentials --resource-group ${{ secrets.RG_NAME }} --name ${{ secrets.AKS_NAME }} --overwrite-existing
 
       - name: deploy to aks
         working-directory: manifests
