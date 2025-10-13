@@ -19,6 +19,7 @@ spec:
     spec:
       containers:
       - name: myapp
+        # Update your image version here
         image: achinta1/todo:v1.0
         resources:
           limits:
