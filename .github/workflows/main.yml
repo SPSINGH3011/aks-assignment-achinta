@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-      
+env:
+  IMAGE_VERSION: '1.0'
+  
 permissions:
   id-token: write
   contents: read
@@ -19,7 +21,7 @@ jobs:
 
       - name: appBuild
         working-directory: todo-app
-        run: docker build -t achinta1/todo:latest .
+        run: docker build -t achinta1/todo:v$IMAGE_VERSION .
 
       - name: Docker Login
         uses: docker/login-action@v3.6.0
@@ -28,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
 
       - name: image push to dockerhub
-        run: docker push achinta1/todo:latest
+        run: docker push achinta1/todo:v$IMAGE_VERSION
 
   deploy:
     name: deploy App to cluster
