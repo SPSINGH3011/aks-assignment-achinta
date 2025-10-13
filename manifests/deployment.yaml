@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: achinta1/todo:latest
+        image: achinta1/todo:v1.0
         resources:
           limits:
             memory: "100Mi"
