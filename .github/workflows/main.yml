@@ -35,7 +35,7 @@ jobs:
 
   deploy:
     name: deploy App to cluster
-    needs: build
+    needs: build        #depends on
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
